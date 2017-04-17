@@ -25,5 +25,7 @@
     "url": "https://github.com/Nyweron/NodeJS-CRUD-JSON-app/issues"
   },
   "homepage": "https://github.com/Nyweron/NodeJS-CRUD-JSON-app#readme",
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
 }
