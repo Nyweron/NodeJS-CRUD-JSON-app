@@ -1,24 +1,27 @@
 {
-  "name": "nodejs-crud-json-app",
-  "version": "1.0.0",
-  "description": "Simply app which helps me learn NodeJS",
-  "main": "server.js",
-  "scripts": {
-    "test": "This is command test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Nyweron/NodeJS-CRUD-JSON-app.git"
-  },
-  "keywords": [
-    "javascript",
-    "nodejs",
-    "json"
-  ],
-  "author": "Przemysław Juśkiewicz",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Nyweron/NodeJS-CRUD-JSON-app/issues"
-  },
-  "homepage": "https://github.com/Nyweron/NodeJS-CRUD-JSON-app#readme"
+    "name": "nodejs-crud-json-app",
+    "version": "1.0.0",
+    "description": "Simply app which helps me learn NodeJS",
+    "main": "server.js",
+    "scripts": {
+        "test": "This is command test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Nyweron/NodeJS-CRUD-JSON-app.git"
+    },
+    "dependencies": {
+        "express": "*"
+    },
+    "keywords": [
+        "javascript",
+        "nodejs",
+        "json"
+    ],
+    "author": "Przemysław Juśkiewicz",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Nyweron/NodeJS-CRUD-JSON-app/issues"
+    },
+    "homepage": "https://github.com/Nyweron/NodeJS-CRUD-JSON-app#readme"
 }
