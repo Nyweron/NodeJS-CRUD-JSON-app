@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var fs = require("fs");
-var es6 = require('./ES6.js');
+var JsonDB = require('node-json-db');
 
 app.get('/listUsers', function(req, res) {
     fs.readFile(__dirname + "/" + "users.json", 'utf8', function(err, data) {
@@ -36,19 +36,28 @@ app.get('/addUsers', function(req, res) {
     });
 });
 
-app.get('/addtable', function(req, res) {
-    fs.readFile('table.json', 'utf8', function(err, data) {
-        if (err) {
-            return console.error(err);
-        }
-        console.log("Asynchronous read: " + data.toString());
-        var obj = JSON.parse(data);
 
-        //try get last id from obj.
+var db = new JsonDB("table.json", true, false);
 
 
-        obj.table.push({ id: 11, square: 20 });
-        var json = JSON.stringify(obj);
-        fs.writeFile('table.json', json, 'utf8');
-    });
-});
+var data = db.getData("/");
+console.log(data);
+db.push("table.json/table[]", { id: 6, squere: 556 }, true);
+
+console.log(db);
+
+
+// fs.readFile('table.json', 'utf8', function(err, data) {
+//     if (err) {
+//         return console.error(err);
+//     }
+//     console.log("Asynchronous read: " + data.toString());
+//     var obj = JSON.parse(data);
+
+//     //try get last id from obj.
+
+//     obj.table.push({ id: 11, square: 20 });
+//     var json = JSON.stringify(obj);
+//     fs.writeFile('table.json', json, 'utf8');
+// });
+//});
