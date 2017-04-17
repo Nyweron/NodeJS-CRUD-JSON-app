@@ -16,5 +16,17 @@
         "password": "password3",
         "profession": "clerk",
         "id": 3
+    },
+    "user8": {
+        "name": "mohit4",
+        "password": "password6",
+        "profession": "teacher",
+        "id": 8
+    },
+    "user10": {
+        "name": "mohit4",
+        "password": "password6",
+        "profession": "teacher",
+        "id": 8
     }
 }

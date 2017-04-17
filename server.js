@@ -2,9 +2,6 @@ var express = require('express');
 var app = express();
 var fs = require("fs");
 
-var obj = {
-    table: []
-};
 
 app.get('/listUsers', function(req, res) {
     fs.readFile(__dirname + "/" + "users.json", 'utf8', function(err, data) {
@@ -22,33 +19,21 @@ var server = app.listen(8081, function() {
 
 
 
-var user = {
-    "user4": {
-        "name": "mohit",
-        "password": "password4",
-        "profession": "teacher",
-        "id": 4
-    }
-}
 
-// fs.readFile('table.json', 'utf8', function(err, data) {
-//     if (err) {
-//         return console.error(err);
-//     }
-//     console.log("Asynchronous read: " + data.toString());
-//     var obj = JSON.parse(data);
-//     obj.table.push({ id: 11, square: 20 });
-//     var json = JSON.stringify(obj);
-//     fs.writeFile('table.json', json, 'utf8');
-// });
 
-fs.readFile('table.json', 'utf8', function(err, data) {
+
+fs.readFile('users.json', 'utf8', function(err, data) {
     if (err) {
         return console.error(err);
     }
     console.log("Asynchronous read: " + data.toString());
     var obj = JSON.parse(data);
-    obj.table.push({ id: 11, square: 20 });
+    obj.user10 = ({
+        "name": "mohit4",
+        "password": "password6",
+        "profession": "teacher",
+        "id": 8
+    });
     var json = JSON.stringify(obj);
-    fs.writeFile('table.json', json, 'utf8');
+    fs.writeFile('users.json', json, 'utf8');
 });
