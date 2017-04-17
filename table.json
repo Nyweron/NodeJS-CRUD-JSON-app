@@ -1,0 +1,59 @@
+{
+    "table": [{
+            "Id ": 1,
+            "square ": 1
+        },
+        {
+            "Id ": 2,
+            "square ": 3
+        },
+        {
+            "Id ": 3,
+            "square ": 9
+        },
+        {
+            "Id ": 4,
+            "square ": 16
+        },
+        {
+            "Id ": 5,
+            "square ": 25
+        },
+        {
+            "Id ": 6,
+            "square ": 36
+        },
+        {
+            "Id ": 7,
+            "square ": 49
+        },
+        {
+            "Id ": 8,
+            "square ": 64
+        },
+        {
+            "Id ": 9,
+            "square ": 81
+        },
+        {
+            "Id ": 10,
+            "square ": 100
+        },
+        {
+            "id": 1,
+            "square": 2
+        },
+        {
+            "id": 11,
+            "square": 20
+        },
+        {
+            "id": 11,
+            "square": 20
+        },
+        {
+            "id": 11,
+            "square": 20
+        }
+    ]
+}

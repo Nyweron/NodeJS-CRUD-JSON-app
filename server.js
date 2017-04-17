@@ -20,6 +20,8 @@ var server = app.listen(8081, function() {
     console.log("Example app listening at http://%s:%s", host, port);
 });
 
+
+
 var user = {
     "user4": {
         "name": "mohit",
@@ -29,14 +31,24 @@ var user = {
     }
 }
 
-fs.readFile('users.json', 'utf8', function(err, data) {
+// fs.readFile('table.json', 'utf8', function(err, data) {
+//     if (err) {
+//         return console.error(err);
+//     }
+//     console.log("Asynchronous read: " + data.toString());
+//     var obj = JSON.parse(data);
+//     obj.table.push({ id: 11, square: 20 });
+//     var json = JSON.stringify(obj);
+//     fs.writeFile('table.json', json, 'utf8');
+// });
+
+fs.readFile('table.json', 'utf8', function(err, data) {
     if (err) {
         return console.error(err);
     }
-
     console.log("Asynchronous read: " + data.toString());
     var obj = JSON.parse(data);
-    data["user4"] = user["user4"];
-    console.log(data);
-    res.end(JSON.stringify(data));
+    obj.table.push({ id: 11, square: 20 });
+    var json = JSON.stringify(obj);
+    fs.writeFile('table.json', json, 'utf8');
 });
