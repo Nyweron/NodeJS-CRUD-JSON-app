@@ -1,61 +1,44 @@
-var express = require('express');
+var express = require("express");
 var app = express();
 var fs = require("fs");
-var JsonDB = require('node-json-db');
-var bodyParser = require('body-parser');
+var JsonDB = require("node-json-db");
+var bodyParser = require("body-parser");
 
+const jsonFileName = "name.json";
 // Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
-app.get('/listUsers', function(req, res) {
-    fs.readFile(__dirname + "/" + "users.json", 'utf8', function(err, data) {
-        console.log(data);
-        res.end(data);
-    });
-});
-
 var server = app.listen(8081, function() {
-    var host = server.address().address
-    var port = server.address().port
+  const host = server.address().address;
+  const port = server.address().port;
 
-    console.log("Example app listening at http://%s:%s", host, port);
+  console.log("Example app listening at http://%s:%s", host, port);
 });
 
-
-app.get('/addUsers', function(req, res) {
-    fs.readFile('users.json', 'utf8', function(err, data) {
-        if (err) {
-            return console.error(err);
-        }
-        console.log("Asynchronous read: " + data.toString());
-        var obj = JSON.parse(data);
-        obj.user10 = ({
-            "name": "mohit4",
-            "password": "password6",
-            "profession": "teacher",
-            "id": 8
-        });
-        var json = JSON.stringify(obj);
-        fs.writeFile('users.json', json, 'utf8');
-    });
+app.get("/list", function(req, res) {
+  fs.readFile(__dirname + "/" + jsonFileName, "utf8", function(err, data) {
+    res.end(data);
+  });
 });
 
+app.post("/addName", urlencodedParser, function(req, res) {
+  // Prepare output in JSON format
+  response = {
+    name: req.body.name,
+    lastName: req.body.lastName
+  };
 
-app.post('/addTable', urlencodedParser, function(req, res) {
-    // Prepare output in JSON format
-    response = {
-        id: req.body.id,
-        squere: req.body.squere
-    };
+  let db = new JsonDB(jsonFileName, true, false);
+  db.push(
+    jsonFileName + "/names[]",
+    { id: Math.floor(Math.random() * 100000) ,name: response.name, lastName: response.lastName },
+    true
+  );
 
-    var db = new JsonDB("table.json", true, false);
-    db.push("table.json/table[]", { id: parseInt(response.id), squere: parseInt(response.squere) }, true);
-
-    console.log(db);
-    res.end(JSON.stringify(db));
+  res.end(JSON.stringify(db));
 });
 
-app.use(express.static('public'));
-app.get('/index.html', function(req, res) {
-    res.sendFile(__dirname + "/" + "index.html");
-})
+app.use(express.static("public"));
+app.get("/index.html", function(req, res) {
+  res.sendFile(__dirname + "/" + "index.html");
+});
